@@ -138,7 +138,7 @@ post '/submit' do
    :from => "mmtcontactnoreply@gmail.com", 
    :subject => "Your City Wholesale Quote", 
    :content_type => 'text/html', 
-   :body => erb(:email),
+   :body => erb(:email, :layout => false),
    :via => :smtp, 
    :via_options => {
      :address              => 'smtp.gmail.com',
@@ -177,7 +177,7 @@ post '/submit2' do
    :from => "mmtcontactnoreply@gmail.com", 
    :subject => "Your City Wholesale Quote", 
    :content_type => 'text/html', 
-   :body => erb(:email),
+      :body => erb(:email2, :layout => false),
    :via => :smtp, 
    :via_options => {
      :address              => 'smtp.gmail.com',
