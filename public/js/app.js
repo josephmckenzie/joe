@@ -15,7 +15,7 @@ $overlay.append($caption);
 $("body").append($overlay);
 
 //Capture the click event on a link to an image
-$("#boxCabinet a,#channelLetters a, #customSignage a ").click(function(event){
+$("#boxCabinet a,#channelLetters a, #customSignage a, #postandpanel a ").click(function(event){
   event.preventDefault();
   var imageLocation = $(this).attr("href");
   //Update overlay with the image linked in the link
