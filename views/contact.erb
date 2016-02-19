@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+<div class = "contactpageinfo">
+<p>City Wholesale is located at <b>1095 Chaplin Hill Road Morgantown, WV 26501</b>.<br>
+We have been in business for over fifty years, and have over one hundred years of combined experience.<br>
+We are able to handle all of your signage needs.</p>
+<div>
+<center><p>Please fill in your contact information below and click Submit</p></center>
+   <form id="estimateContact" action="/submit2" method="post">
+      <fieldset id="contactInfo">
+        <div class="title"><span class="number">1.</span> Your basic info</div>
+        <label for="name" class="text">Name:<span class="required">*</span></label>
+        <input type="text" id="name" name="user_name">
+        <label for="business" class="text">Business:<span class="required">*</span></label>
+        <input type="text" id="business" name="user_business">
+        <label for="address" class="text">Address:<span class="required">*</span></label>
+        <input type="text" id="address" name="user_address">
+        <label for="phone" class="text">Phone:<span class="required">*</span></label>
+        <input type="text" id="phone" name="user_phone">
+        <label for="mail" class="text">Email:<span class="required">*</span></label>
+        <input type="email" id="mail" name="user_email">
+        
+      </fieldset>
+	  <fieldset>
+        <div class="title"><span class="number">2.</span>Comments or Questions?:</div>
+        <label for="message" class="text">Type your message here:</label>
+        <textarea id="message" name="message"></textarea>
+        <br>
+        <center><button id="contactSubmit" type="submit">Submit</button></center>
+        <label class="text"><span class="required">*required field</span></label>
+      </fieldset>
+    </form>

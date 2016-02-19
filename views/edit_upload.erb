@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>City Neon Management</title>
+</head>
+<script type="text/javascript" charset="utf-8"> if (document.referrer == "") { alert("Please Login!"); top.location="/login";; } </script>
+
+<body>
+
+<form class="uploadedit" action="/edit_csv" method="POST">
+
+<br><br>
+<input type="hidden" name="id" value=<%=id%>>
+<p><img src=<%=image %> name="slide" width="50" height="50"></p>
+<br><br>
+<%=signtype%>
+<br><br>Image Caption:<br><br>
+<textarea required value=<%=caption%> name="caption" rows="5" cols="40"><%=caption%></textarea><br>
+<br><br>
+<select required name="active">
+  <option value="">Select Status</option>
+  <option value="Inactive">Inactive</option>
+  <option value="Active">Active</option>
+  </select>
+<br>
+<select required name="featured">
+  <option value="">Featured?</option>
+  <option value="Featured">Featured</option>
+  <option value="NotFeatured">Not Featured</option>
+  </select>
+  <br><br>
+<input type="submit" name="submit" value="Submit Information">
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<link rel="stylesheet" href="/css/style.css" type="text/css" >
+	
+	<title>City Neon Management</title>
+
+</head>
+<script type="text/javascript" charset="utf-8"> if (document.referrer == "") { alert("Please Login!"); top.location="/login";; } </script>
+
+		<body>
+​
+	<br>
+	<form action="/upload" method="GET">
+	<p><input type="submit" value="New Entry"></p>
+	</form>
+	<br>
+
+	<h1>Box Cabinet</h1>
+	
+       
+<div class="imagealign"><!--This aligns image and text-->
+	<% csv.each.with_index do |row,index|%>
+	<%   if row[3] == "Box" %>
+	
+	<form action="/edit_upload" method="POST">
+	<p class="updateimage"><img src=<%= row[0]%> name="image" width="100" height="100">
+	<br>
+	Caption: <%=row[1]%><br>
+
+	Status: <%=row[2]%><br>
+
+	SignType: <%=row[3]%><br>
+
+	Featured: <%=row[4]%><br>
+	<br>
+	<% button_text = index.to_s %>
+
+	<!-- Click to edit index <%=button_text%> -->
+	<button name="edit" value=<%=index%> type="submit">Edit</button>
+
+	
+	<!-- <input type="submit" name="edit" value=<%=index%> > -->
+
+	<% end %>
+	<% end %>	
+</div>
+
+	<h1>Channel Letters</h1>
+	
+     
+<div class="imagealign">
+<% csv.each.with_index do |row,index|%>
+<%   if row[3] == "Channel" %>
+<form action="/edit_upload" method="POST">
+<p class="updateimage"><img src=<%= row[0] %> name="image" width="100">
+<br>
+Caption: <%= row[1] %><br>
+
+Status: <%= row[2] %><br>
+
+SignType: <%= row[3] %><br>
+
+Featured: <%=row[4]%><br>
+<br>
+<% button_text = index.to_s %>
+
+<!-- Click to edit index <%=button_text%> -->
+<button name="edit" value=<%=index%> type="submit">Edit</button>
+
+<!-- <input type="submit" name="edit" value=<%=index%> > -->
+
+	<% end %>
+<% end %>	
+</div>
+
+	<h1>Custom</h1>
+	
+      
+<div class="imagealign">
+<% csv.each.with_index do |row,index|%>
+<%   if row[3] == "Custom" %>
+<form action="/edit_upload" method="POST">
+<p class="updateimage"><img src=<%= row[0] %> name="image" width="100"><!--Needed a paragraph this line-->
+<br>
+Caption: <%= row[1] %><br>
+
+Status: <%= row[2] %><br>
+
+SignType: <%= row[3] %><br>
+
+Featured: <%=row[4]%><br>
+<br>
+<% button_text = index.to_s %>
+
+<!-- Click to edit index <%=button_text%> -->
+<button name="edit" value=<%=index%> type="submit">Edit</button>
+
+<!-- <input type="submit" name="edit" value=<%=index%> > -->
+
+	
+	<% end %>
+<% end %>	
+</div>
+
+	<h1>Post & Panel</h1>
+	
+      
+<div class="imagealign">
+<% csv.each.with_index do |row,index|%>
+<%   if row[3] == "Post&Panel" %>
+<form action="/edit_upload" method="POST">
+<p class="updateimage"><img src=<%= row[0] %> name="image" width="100">
+<br>
+
+Caption:<%= row[1] %><br>
+
+Status:<%= row[2] %><br>
+
+SignType:<%= row[3] %><br>
+
+Featured:<%=row[4]%><br>
+<br>
+<% button_text = index.to_s %>
+
+<!-- Click to edit index <%=button_text%> -->
+<button name="edit" value=<%=index%> type="submit">Edit</button>
+
+<!-- <input type="submit" name="edit" value=<%=index%> > -->
+
+
+
+
+</p>	
+	<% end %>
+<% end %>	
+</div>
+
+	</form>	
+		
+		</body>
+
+</html>

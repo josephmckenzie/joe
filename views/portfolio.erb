@@ -1,0 +1,91 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" src="/css/normalize-css.googlecode.com/svn/trunk/normalize.css" /> 
+    <link rel="stylesheet" href="/css/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <title>Portfolio</title>
+</head> -->
+<body>
+<div id="slideshow">
+
+    <a name="featured" id="featured"></a>
+    
+    <h1>Featured Work</h1>
+      <div id="ssouter">
+<% csv.each do |row|%>
+        <% if row[2] == "Active" && row[4] == "Featured" %>   
+        <img class="slideshow" src=<%= row[0]%> >
+        
+        <% end %>
+<% end %>   
+      </div>
+    </div>
+    
+        <div id="portfolio">
+    <a name="boxCabinet"></a>
+    <h1>Box Cabinet </h1>
+    
+        <ul id="boxCabinet">
+        
+        <% csv.each do |row|%>
+        <%   if row[3] == "Box" && row[2] == "Active" %>
+        <li><a href="<%= row[0]%>"><img src=<%= row[0]%> width="120" height="120"alt=<%=row[1]%>></a></li>
+           
+           <% end %>
+           <% end %>
+           
+        </ul>
+        
+       <a name="channelLetters"></a> 
+      <h1>Channel Letters </h1>
+       <ul id="channelLetters">
+    <% csv.each do |row|%>
+        <%   if row[3] == "Channel" && row[2] == "Active"%>
+            <li><a href="<%= row[0]%>"><img src=<%= row[0] %> width="120" height="120"alt="<%=row[1]%>"></a></li>
+          
+        <% end %>
+    <% end %>
+        </ul>
+        
+        <a name="customsignage"></a> 
+      <h1>Custom Signage</h1>
+       <ul id="customSignage">
+            <% csv.each do |row|%>
+        <% if row[3] == "Custom" && row[2] == "Active"%>
+            <li><a href="<%= row[0]%>"><img src=<%= row[0] %> width="120" height="120"alt="<%=row[1]%>"></a></li>
+          
+        <% end %>
+    <% end %>
+        </ul>
+     
+        <a name="postandpanel"></a>
+        <h1>Post & Panel </h1>
+        <ul id="postandpanel">
+           <% csv.each do |row|%>
+        <%   if row[3] == "Post&Panel" && row[2] == "Active"%>
+            <li><a href="<%= row[0]%>"><img src=<%= row[0] %> width="120" height="120"alt="<%=row[1]%>"></a></li>
+         
+        <% end %>
+    <% end %>
+        </ul>
+        
+    </div>
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/app.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/slideshow.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

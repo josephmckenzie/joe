@@ -1,0 +1,472 @@
+ol {
+  width:auto;
+    list-style-type: none;
+    margin-top:0%;
+  border-bottom-style: solid;
+  /*border-color:#66ff00;*/
+  border-color:#ff5900; /*thin bar at top*/
+  border-width:0.75vw;
+    
+    overflow: hidden;
+    background-color: #004185; /*thick bar at top*/
+  font-family: Limelight;
+  font-size: 2vw;
+  font-style: oblique;
+  font-variant: normal;
+  font-weight: 500;
+  text-decoration: none;
+  margin-bottom:09px;
+  margin-left:0%;
+  margin-right:0%;
+  text-align: center;
+}
+
+li {
+  display: inline; 
+  text-decoration: none;
+}
+
+
+li a {
+    display: inline-block;
+    color: #E4E4E4; /*menubar text*/
+    text-align: center;
+    padding:1vw;
+  text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+   text-decoration: none;
+}
+.img {
+  max-width: 100%
+}
+
+
+.image { 
+   position: relative; 
+   width: 100%; /* for IE 6 */
+}
+
+.h5 { 
+   position: absolute; 
+   top: 200px; 
+   left: 800; 
+   width: 100%; 
+   font-size:80pt;
+   text-decoration:none;
+   color:#FFFFFF;
+}
+
+
+
+
+    
+#footerBar1 /*large bar at bottom(blue)*/ {
+   
+    width:auto;
+    margin-top:2%; /*removed slight gap in between pics and bar*/
+     border-top-style: solid;
+  
+  border-color:#ff5900; /*thin bar at bottom*/
+  border-width:0.75vw;
+    
+  background-color: #004185; /*thick bar at bottom*/
+  height: 1%;
+
+  font-size: medium;
+  color:silver; 
+  text-align:center;
+  
+ }   
+  
+ 
+ /* home page css */  
+
+#mainphoto {
+  
+ width:80%;
+ /* margin-top:-20pt; */
+ margin-bottom:1%;
+ margin-left:10%;
+ border:0;
+ 
+}
+
+#linkphoto1{
+ /*width:18.5%;*/
+ border:0vw;
+ margin-left:10%;
+ 
+   max-width: 18.5%;
+}#linkphoto2{
+ /*width:18.5%;*/
+ /*margin-top:-2.5%;*/
+ margin-left:2%;
+
+   max-width: 18.5%;
+}#linkphoto3{
+ /*width:18.5%;*/
+ /*margin-top:-2.5%;*/
+ margin-left:2%;
+ 
+   max-width: 18.5%;
+}#linkphoto4{
+/* width:18.5%;*/
+ 
+ margin-left:2%;
+ 
+   max-width: 18.5%;
+}
+.textabovepics{
+  font-size:2vw;
+  font-weight:bold;
+  display:inline;
+  color:#004185;
+  
+  width:80%;
+  text-align:center;
+margin-top:0%;}
+  
+/*Global*/
+
+/*Global*/
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 0.9em;
+}
+
+p, h3 {
+  text-align: center;
+  margin: 10px auto;
+}
+
+.hidden {
+  display: none;
+}
+
+/*Estimate*/
+
+#estimation {
+  height: 420px;
+  width: 376px;
+  border: 1px solid #999;
+  margin: 10px auto;
+  padding: 10px 20px;
+  background: #f4f7f8;
+  text-align: center;
+  position: relative;
+  font-size:x-large;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  width: 100%;
+  text-align: left;
+}
+
+.selection {
+  width: 80%;
+  padding: 5px 5px;
+  vertical-align: bottom;
+}
+
+.price {
+  width: 20%;
+  padding: 0 5px 5px 0;
+  vertical-align: bottom;
+}
+
+th {
+  vertical-align: top;
+  text-align: center;
+}
+
+.bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 10px 0 0 0;
+  width: 100%;
+  text-align: center;
+}
+
+#total {
+  text-align: left;
+  margin: 20px 0 0 25px;
+}
+
+#total input {
+  width: 30%;
+  color: green;
+}
+
+#estimateSubmit {
+  margin: 20px 0;
+}
+
+/*Contact*/
+
+#estimateContact {
+  width: 420px;
+  margin: 10px auto;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.number {
+  background-color: #214a97;
+  color: #fff;
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  font-size: 0.8em;
+  margin-right: 4px;
+  line-height: 30px;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+  border-radius: 100%;
+}
+
+.title {
+  text-align: left;
+  margin: 10px;
+}
+
+fieldset {
+  margin-bottom: 10px;
+  background: #f4f7f8;
+  padding: 0;
+  border: 1px solid #999;
+}
+
+.text {
+  display: block;
+  clear: left;
+  padding: 10px 0px 10px 10px;
+}
+
+.required {
+  color: red;
+  border: none;
+  background: #f4f7f8;
+  margin: 0;
+  padding: 0;
+}
+
+label {
+  text-align: left;
+}
+
+#estimateContact input, textarea {
+  border: 1px solid #999;
+  height: auto;
+  margin: 10px 7.5% 10px 7.5%;
+  padding: 5px 15px;
+  width: 85%;
+  background-color: #e8eeef;
+  color: #333;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  margin-bottom: 20px;
+}
+
+#selections {
+  text-align: left;
+}
+
+#selections td {
+  padding-left: 10px;
+  margin: 0;
+}
+
+#selections td:nth-child(2n) {
+  padding: 5px 10px 5px 0px;
+}
+
+#selections input {
+  width: 100%;
+  margin: 0;
+}
+
+#contactSubmit {
+  display: inline-block;
+  margin: auto;
+  text-align: center;
+}
+
+.error {
+  outline: 1px solid red;
+}
+
+#error {
+  color: red;
+  margin: -20px;
+}
+
+#submission {
+  color: blue;
+}
+
+/*Email*/
+
+.logo {
+  display: block;
+  margin: 0 auto 20px;
+}
+
+.emailTable {
+  margin: auto;
+  width: 30%;
+}
+
+.emailTable td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+body {
+  font-family: sans-serif;
+  background: #384047;
+}
+h1 {
+  color: #004185;
+  text-align: center
+}
+
+ul {
+  list-style:none;
+  margin: 0 auto;
+  padding: 0;
+  display: block;
+  max-width: 780px;
+  text-align: center;
+}
+ul li {
+  display: inline-block;
+  padding: 8px;
+  background:white;
+  margin:10px;
+}
+ul li img {
+  display: block;
+}
+a {
+  text-decoration: none;
+}
+
+/** Start Coding Here **/
+
+#slideshow,#portfolio {
+  display: inline-block;
+  margin: 0;
+}
+
+#slideshow {
+  vertical-align: top;
+  width: 40%;
+}
+
+#ssouter {
+  position: relative;
+}
+
+#ssouter img {
+  width: 80%;
+  margin: 0 10%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.slideshow {
+  display: none;
+}
+
+.current {
+  display: block;
+}
+
+#overlay {
+  background:rgba(0,0,0,0.8);
+  width:100%;
+  height:100%;
+  position:fixed;
+  top:0%;
+  left:0%;
+  display:none;
+  text-align:center;
+}
+
+#overlay img {
+  margin-top: 20px; 
+  /*width:50%;*/
+  height: 85%;
+}
+
+#overlay p {
+ color:white; 
+}
+
+.contactpageinfo{
+  color:#004185;
+  font-size:1vw;
+}
+
+@media screen and (orientation: landscape) {
+
+    #nav { float: left }
+
+}
+
+@media screen and (orientation: portrait) {
+
+    #nav { float: none }
+
+}
+
+input.box {width:20px;text-align:center;}
+
+p {text-align:center;}   /*makes images horizontal on edit page
+*/
+input.box {width:20px;text-align:center;}
+
+table {font:.5em comic sans ms;color: black;margin:auto; }
+
+
+.imagealign {
+    
+    width: 100%;
+    margin:auto;
+    border: none;
+    padding: 10px;
+    
+}
+
+.updateimage  {
+    display: inline-block;
+    margin-top:.5%;
+    margin-right:10px;
+    margin-left:10px;
+    border: none;
+}
+
+.login{
+    width:50%;
+    height:150%
+    
+}
+
+.uploadedit {
+  margin-left: 10%;
+
+
+}
+

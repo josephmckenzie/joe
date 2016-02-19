@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  </head>
+  <body>
+    <style>
+      .logo {
+        display: block;
+        margin: 0 auto 20px;
+      }
+      
+      p, h3 {
+        text-align: center;
+        margin: 10px auto;
+      }
+
+      .emailTable {
+        margin: auto;
+        width: 50%;
+        border-collapse: collapse;
+      }
+
+      .emailTable td {
+        border: 1px solid black;
+      }
+    </style>
+    <img class="logo" src="http://cityneonwholesale.herokuapp.com/neonlogo2.png" alt="City Neon Logo">
+    <h3>Thank you for your interest in our products!</h3>
+    <p>All quotes are good for 7 days.  If you have any questions please call us at 304-999-9999.</p>
+    <p>Here is your quote:</p>
+    <table class="emailTable">
+      <tr>
+        <td>Name:</td><td><%=params[:user_name]%></td>
+      </tr>
+      <tr>
+        <td>Business:</td><td><%=params[:user_business]%></td>
+      </tr>
+      <tr>
+        <td>Address:</td><td><%=params[:user_address]%></td>
+      </tr>
+      <tr>
+        <td>Phone:</td><td><%=params[:user_phone]%></td>
+      </tr>
+      <tr>
+        <td>Email:</td><td><%=params[:user_email]%></td>
+      </tr>
+      <tr>
+        <td>Referred By:</td><td><%=params[:user_referred]%></td>
+      </tr>
+      <tr>
+        <td>Size:</td><td><%=params[:sizeSelection]%></td>
+      </tr>
+      <tr>
+        <td>Depth:</td><td><%=params[:depthSelection]%></td>
+      </tr>
+      <tr>
+        <td>Face:</td><td><%=params[:faceSelection]%></td>
+      </tr>
+      <tr>
+        <td>Mounting:</td><td><%=params[:mountingSelection]%></td>
+      </tr>
+      <tr>
+        <td>Lighting:</td><td><%=params[:lightingSelection]%></td>
+      </tr>
+      <tr>
+        <td>Paint:</td><td><%=params[:paintSelection]%></td>
+      </tr>
+      <tr>
+        <td>Total Price:</td><td><%=params[:totalSelection]%></td>
+      </tr>
+      <tr>
+        <td>Quote Number:</td><td><%=params[:estimateSelection]%></td>
+      </tr>
+      <tr>
+        <td>Comments:</td><td><%=params[:message]%></td>
+      </tr>
+    </table>
+  </body>
+</html>

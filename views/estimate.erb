@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title><%=title%></title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+  <center><p><b>"Volume Discounts Available"</b></p></center>
+      <h3>Estimator Form</h3>
+     <p>Please select from the options below and click Proceed</p>
+    <form id="estimation" action="/estimateContact" method="post">
+      <table>
+        <tr>
+          <td class="selection">
+          <legend for="cabinetSize">Select Cabinet Size</legend>
+          <select id="cabinetSize" name="cabinetSize">
+            <option value="choose">Choose</option>
+            <option value="23">2 x 3</option>
+            <option value="24">2 x 4</option>
+            <option value="25">2 x 5</option>
+            <option value="26">2 x 6</option>
+            <option value="28">2 x 8</option>
+            <option value="34">3 x 4</option>
+            <option value="35">3 x 5</option>
+            <option value="36">3 x 6</option>
+            <option value="38">3 x 8</option>
+            <option value="44">4 x 4</option>
+            <option value="45">4 x 5</option>
+            <option value="46">4 x 6</option>
+            <option value="48">4 x 8</option>
+          </select>
+          </td>
+          <th>Price</th>
+        </tr>
+        <tr>
+          <td class="selection">
+          <legend for="cabinetDepth">Select Cabinet Depth</legend>
+          <select id="cabinetDepth" name="cabinetDepth">
+            <option value="choose">Choose</option>
+            <option value="6ss">6" Single Sided</option>
+            <option value="75ss">7.5" Single Sided</option>
+            <option value="115ds">11.5" Double Sided</option>
+          </select>
+          </td>
+          <td id="depthPrice" class="price"></td>
+        </tr>
+        <tr>
+          <td class="selection">
+          <legend class="cabinetFace" for="cabinetFace">Select Cabinet Face</legend>
+          <select id="cabinetFace" name="cabinetFace">
+            <option value="choose">Choose</option>
+            <option value="flat">Flat Face</option>
+            <option value="pan">Pan Face</option>
+            <option value="none">None</option>
+          </select>
+          </td>
+          <td id="facePrice" class="price"></td>
+        </tr>
+        <tr>
+          <td class="selection">
+          <legend class="cabinetMount" for="cabinetMount">Select Mounting Option</legend>
+          <select id="cabinetMount" name="cabinetMount"></select>
+          </td>
+          <td id="mountPrice" class="price"></td>
+        </tr>
+        <tr>
+          <td class="selection">
+          <legend class="cabinetLighting" for="cabinetLighting">Select Lighting</legend>
+          <select id="cabinetLighting" name="cabinetLighting">
+            <option value="choose">Choose</option>
+            <option value="fl">Fluorescent</option>
+            <option value="led">LED</option>
+            <option value="none">None</option>
+          </select>
+          </td>
+          <td id="lightPrice" class="price"></td>
+        </tr>
+        <tr>
+          <td class="selection">
+          <legend class="cabinetPaint" for="cabinetPaint">Select Paint</legend>
+          <select id="cabinetPaint" name="cabinetPaint">
+            <option value="choose">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+          </td>
+          <td id="paintPrice" class="price"></td>
+      </table>
+      <div class="bottom">
+        <p id="total">Total: <input id="totalPrice" name="totalPrice" value="" type="text" readOnly="true"></p>
+        <button id="estimateSubmit" type="submit">Proceed With Estimate</button>
+      </div>
+      <input id="estimateNumber" type="text" name="estimateNumber" value="" class="hidden">
+    </form>
+    <script src="/js/jquery-2.2.0.min.js?version=020620161319"></script>
+    <script src="/js/pricing.js?version=020620161319"></script>
+    <script src="/js/estimator.js?version=020620161414"></script>
+  </body>
+</html>

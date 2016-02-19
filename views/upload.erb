@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>City Neon Management</title>
+</head>
+<script type="text/javascript" charset="utf-8"> if (document.referrer == "") { alert("Please Login!"); top.location="/login";; } </script>
+
+<body>
+
+<form class="uploadedit" action="/upload" method="POST">
+
+<br><br>
+<input required type="text" name="filename">
+
+<select required name="signtype">
+  <option value="">Sign Type</option>
+  <option value="Box">Box</option>
+  <option value="Channel">Channel</option>
+  <option value="Post&Panel">Post & Panel</option>
+  <option value="Custom">Custom</option>
+  </select>
+  
+<br><br>Image Caption:<br><br>
+<textarea required name="caption" rows="5" cols="40"></textarea><br>
+<br><br>
+<select required name="validity">
+  <option value="">Select Status</option>
+  <option value="Inactive">Inactive</option>
+  <option value="Active">Active</option>
+  </select>
+<br><br>
+<select required name="featured">
+  <option value="">Featured?</option>
+  <option value="Featured">Featured</option>
+  <option value="NotFeatured">Not Featured</option>
+  </select>
+<input type="submit" name="submit" value="Submit Information">
+
+</form>
+<br><br><br><br>
+</body>
+</html>
