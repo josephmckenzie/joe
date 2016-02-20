@@ -20,9 +20,11 @@ UserID and Password*/
 
 function pasuser(form) {
 
-if (form.id.value=="Cityneon") { 
 
-if (form.pass.value=="Cityneon") {              
+
+if (form.id.value== '<%= ENV ["USERNAME"] %>' ) { 
+
+if (form.pass.value=='<%= ENV["PASSWORD"] %>') {              
 
 location="/update_csv" 
 
