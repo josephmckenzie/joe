@@ -5,6 +5,7 @@ require_relative 'converter.rb'
 require 'pony'
 require 'csv'
 require 'aws/s3'
+load "./local_env.rb" if File.exists?("./local_env.rb")
 
 AWS::S3::Base.establish_connection!(
   :access_key_id   => ENV['S3_KEY'],
@@ -24,7 +25,11 @@ csv = CSV.parse(AWS::S3::S3Object.value(ENV['S3_FILE'] , ENV['S3_BUCKET']))
 end
 
 get '/login' do
-    erb :login, :locals => {}
+  
+  user = ENV['USERNAME']
+  pass = ENV['PASSWORD']
+    
+  erb :login, :locals => {:user => user, :pass => pass}
 end
 
 get '/update_csv' do
