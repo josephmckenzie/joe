@@ -5,7 +5,7 @@ require_relative 'converter.rb'
 require 'pony'
 require 'csv'
 require 'aws/s3'
-load "./local_env.rb" if File.exists?("./local_env.rb")
+load "./local_env.rb"
 
 AWS::S3::Base.establish_connection!(
   :access_key_id   => ENV['S3_KEY'],
@@ -16,7 +16,7 @@ AWS::S3::Base.establish_connection!(
 def write_file_to_s3(data_to_write)
   AWS::S3::S3Object.store('citywholesale.csv' , 
                         data_to_write, 
-                        "omfgirhpa", 
+                        "joestest2", 
                         :access => :public_read)
 end
 
