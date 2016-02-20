@@ -24,7 +24,8 @@ csv = CSV.parse(AWS::S3::S3Object.value(ENV['S3_FILE'] , ENV['S3_BUCKET']))
 end
 
 get '/login' do
-    erb :login, :locals => {}
+	
+    erb :login, :locals => {username => }
 end
 
 get '/update_csv' do
