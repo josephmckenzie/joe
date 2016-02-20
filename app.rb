@@ -6,6 +6,10 @@ require 'pony'
 require 'csv'
 require 'aws/s3'
 
+set :USERNAME, ENV['USERNAME']
+set :PASSWORD, ENV['PASSWORD']
+
+
 AWS::S3::Base.establish_connection!(
   :access_key_id   => ENV['S3_KEY'],
   :secret_access_key => ENV['S3_SECRET']
@@ -24,7 +28,8 @@ csv = CSV.parse(AWS::S3::S3Object.value(ENV['S3_FILE'] , ENV['S3_BUCKET']))
 end
 
 get '/login' do
-    erb :login, :locals => {}
+	
+    erb :login, :locals => {:USERNAME => ENV['USERNAME'], :PASSWORD => ENV['PASSWORD']}
 end
 
 get '/update_csv' do
