@@ -4,14 +4,31 @@ require 'tilt/erb'
 require_relative 'converter.rb'
 require 'pony'
 require 'csv'
+require 'aws/s3'
+
+AWS::S3::Base.establish_connection!(
+  :access_key_id   => ENV['S3_KEY'],
+  :secret_access_key => ENV['S3_SECRET']
+
+)
+
+def write_file_to_s3(data_to_write)
+  AWS::S3::S3Object.store('citywholesale.csv' , 
+                        data_to_write, 
+                        "omfgirhpa", 
+                        :access => :public_read)
+end
+
+def read_csv_from_s3
+csv = CSV.parse(AWS::S3::S3Object.value(ENV['S3_FILE'] , ENV['S3_BUCKET']))
+end
 
 get '/login' do
     erb :login, :locals => {}
 end
 
 get '/update_csv' do
-    csv = CSV.read("cityneon.csv")
-    
+    csv = read_csv_from_s3
     erb :update_csv, :locals =>{:csv => csv}
 end
 
@@ -19,7 +36,7 @@ get '/upload' do
     erb :upload, :locals =>{:message => "Please Enter all the required information."}
 end
 
-def newfilename(filename)
+def update_url(filename)
   if filename.include?("dl=0") && filename.include?("dropbox")
     filename.chomp!("dl=0")
     filename << "raw=1"
@@ -29,23 +46,27 @@ end
 
 post '/upload' do
 
-filename = params[:filename]
-caption = params[:caption]
-validity = params[:validity]
-signtype = params[:signtype]
-featured = params[:featured]
+  filename = params[:filename]
+  caption = params[:caption]
+  validity = params[:validity]
+  signtype = params[:signtype]
+  featured = params[:featured]
+  old_file = read_csv_from_s3 
+  new_csv = ""
 
-cityneon = "cityneon.csv"
-cityneon = File.open(cityneon,'a')
+  old_file.each do |row|
+    new_csv << row[0] + "," + row[1] + "," + row[2] + "," + row[3] + "," + row[4] + "\r"
+  end
 
-newfilename = newfilename(filename)
-cityneon.write( newfilename + "," + caption + "," + validity + "," + signtype + "," + featured + "\r")
-cityneon.close
-redirect '/update_csv'
+  new_csv << update_url(filename) + "," + caption + "," + validity + "," + signtype + "," + featured + "\r"
+
+  write_file_to_s3(new_csv)
+
+  redirect '/update_csv'
 end
 
 post '/edit_upload' do
-    csv = CSV.read("cityneon.csv")
+    csv = read_csv_from_s3
     csv_row = params[:edit].to_i
     row = csv[csv_row]
         
@@ -58,34 +79,35 @@ post '/edit_csv' do
     caption = params[:caption]
     active = params[:active]
     featured = params[:featured]
-    csv = CSV.read("cityneon.csv")
-    new_csv = File.open("cityneon.csv", 'w')
-    csv.each.with_index do |row, index|
+    csv = read_csv_from_s3
 
+    new_csv = ""
+    csv.each.with_index do |row, index|
         if index == id
         new_csv << row[0] +  "," + caption + "," + active + "," + row[3] + "," + featured + "\r"
         else
         new_csv << row[0] + "," + row[1] + "," + row[2] + "," + row[3] + "," + row[4] + "\r"
         end
     end
-    new_csv.close
+    write_file_to_s3(new_csv)
     redirect '/update_csv'
 end
 
 get '/' do
- @title = 'City Neon Wholesale'
- erb :home
+    @title = 'City Neon Wholesale'
+    erb :home
 end
+
 get '/portfolio' do
- @title = 'Portfolio'
- csv = CSV.read("cityneon.csv")
-    erb :portfolio, :locals =>{:csv => csv}
-    
+    @title = 'Portfolio'
+    csv = read_csv_from_s3
+    erb :portfolio, :locals =>{:csv => csv}  
 end
 
 get '/estimate' do
- erb :estimate, :locals => {:title => "Estimate"}
+    erb :estimate, :locals => {:title => "Estimate"}
 end
+
 get '/email' do
     erb :email
 end
@@ -98,21 +120,21 @@ end
 
 
 post '/estimateContact' do
- size = params[:cabinetSize]
- size = valueConverter(size)
- depth = params[:cabinetDepth]
- depth = valueConverter(depth)
- face = params[:cabinetFace]
- face = valueConverter(face)
- mount = params[:cabinetMount]
- mount = valueConverter(mount)
- light = params[:cabinetLighting]
- light = valueConverter(light)
- paint = params[:cabinetPaint]
- paint = valueConverter(paint)
- total = params[:totalPrice]
- quoteNumber = params[:estimateNumber]
- erb :estimateContact, :locals => {:title => "Estimate Contact", :size => size, :depth => depth, :face => face, :mount => mount, :light => light, :paint => paint, :total => total, :quoteNumber => quoteNumber}
+    size = params[:cabinetSize]
+    size = valueConverter(size)
+    depth = params[:cabinetDepth]
+    depth = valueConverter(depth)
+    face = params[:cabinetFace]
+    face = valueConverter(face)
+    mount = params[:cabinetMount]
+    mount = valueConverter(mount)
+    light = params[:cabinetLighting]
+    light = valueConverter(light)
+    paint = params[:cabinetPaint]
+    paint = valueConverter(paint)
+    total = params[:totalPrice]
+    quoteNumber = params[:estimateNumber]
+    erb :estimateContact, :locals => {:title => "Estimate Contact", :size => size, :depth => depth, :face => face, :mount => mount, :light => light, :paint => paint, :total => total, :quoteNumber => quoteNumber}
 end
 
 post '/submit' do
@@ -121,7 +143,7 @@ post '/submit' do
  address = params[:user_address]
  phone = params[:user_phone]
  from = params[:user_email]
- to = "smellydog@outlook.com,#{from}"
+ to = "info@minedminds.org,#{from}"
  referred = params[:user_referred]
  size = params[:sizeSelection]
  depth = params[:depthSelection]
