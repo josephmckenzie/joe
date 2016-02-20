@@ -25,7 +25,7 @@ end
 
 get '/login' do
 	
-    erb :login, :locals => {username => }
+    erb :login, :locals => {}
 end
 
 get '/update_csv' do
