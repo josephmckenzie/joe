@@ -25,7 +25,7 @@ end
 
 get '/login' do
 	
-    erb :login, :locals => {USERNAME => ENV['USERNAME'], PASSWORD => ENV['PASSWORD']}
+    erb :login, :locals => {:USERNAME => ENV['USERNAME'], :PASSWORD => ENV['PASSWORD']}
 end
 
 get '/update_csv' do
