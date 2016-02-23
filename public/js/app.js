@@ -46,8 +46,8 @@ function getCurrentImage (currentImage) {
     //Update overlay with the image linked in the link
     $image.attr("src", imageLocation);
 
-    //Get child's alt attribute and set caption
     var captionText = $(this).children("img").attr("alt");
+    //Get child's alt attribute and set caption
     $caption.text(captionText);
 }
 
