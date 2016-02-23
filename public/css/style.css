@@ -1,13 +1,18 @@
+body {
+  background-color: silver;
+  font-family: sans-serif;
+}
+
 ol {
-  width:auto;
-    list-style-type: none;
-    margin-top:0%;
+  /*width:auto;
+    list-style-type: none;*/
+    margin:0;
   border-bottom-style: solid;
   /*border-color:#66ff00;*/
   border-color:#ff5900; /*thin bar at top*/
   border-width:0.75vw;
     
-    overflow: hidden;
+    /*overflow: hidden;*/
     background-color: #004185; /*thick bar at top*/
   font-family: Limelight;
   font-size: 2vw;
@@ -15,9 +20,9 @@ ol {
   font-variant: normal;
   font-weight: 500;
   text-decoration: none;
-  margin-bottom:09px;
+  /*margin-bottom:09px;
   margin-left:0%;
-  margin-right:0%;
+  margin-right:0%;*/
   text-align: center;
 }
 
@@ -31,7 +36,7 @@ li a {
     display: inline-block;
     color: #E4E4E4; /*menubar text*/
     text-align: center;
-    padding:1vw;
+    padding:0.5vw;
   text-decoration: none;
 }
 
@@ -45,8 +50,9 @@ li a:hover {
 
 
 .image { 
-   position: relative; 
-   width: 100%; /* for IE 6 */
+  position: relative; 
+  margin-top: 20px;
+  width: 100%; /* for IE 6 */
 }
 
 .h5 { 
@@ -313,7 +319,7 @@ label {
 }
 
 #submission {
-  color: blue;
+  color: #333;
 }
 
 /*Email*/
@@ -332,10 +338,10 @@ label {
   border: 1px solid black;
   border-collapse: collapse;
 }
-body {
+/*body {
   font-family: sans-serif;
   background: #384047;
-}
+}*/
 h1 {
   color: #004185;
   text-align: center
@@ -376,6 +382,7 @@ a {
 
 #ssouter {
   position: relative;
+  height: 650px;
 }
 
 #ssouter img {
@@ -462,15 +469,71 @@ table {font:.5em comic sans ms;color: black;margin:auto; }
     border: none;
 }
 
-.login{
-    width:50%;
-    height:150%
-    
+#login {
+  min-height: calc(1vh - 208.9px);
+  margin: 0;
+  padding: 0;
+}
+
+#loginTable {
+  font: 1.2em sans-serif;
+}
+
+#loginTable th, .buttons {
+  text-align: center;
+}
+
+#loginTable th {
+  padding: 30px 0;
+  font-size: 1.5em;
+}
+
+#loginTable td, #logintable input {
+  padding: 10px;
+}
+
+#status {
+  color: red;
 }
 
 .uploadedit {
   margin-left: 10%;
-
-
 }
+
+.clearfix::after {
+  content: "";
+  display:table;
+  clear:both;
+} 
+#leftArrow, #rightArrow{
+	background: url('../images/bg-slider-arrows.png') no-repeat;
+	background-size: cover;
+	width: 75px;
+	height: 75px;
+	display: inline-block;
+	margin: 40px;
+	vertical-align: 50%;
+}
+
+#rightArrow{
+	background-position: -75px 0px;
+}
+
+#closeLightbox{
+	background: url('../images/lightbox-close.png') no-repeat;
+	background-size: cover;
+	width: 25px;
+	height: 25px;
+	margin: 20px;
+	float: right;
+}
+
+
+
+
+
+
+
+
+
 

@@ -24,7 +24,7 @@
 	<%   if row[3] == "Box" %>
 	
 	<form action="/edit_upload" method="POST">
-	<p class="updateimage"><img src=<%= row[0]%> name="image" width="100" height="100">
+	<p class="updateimage"><img src=<%= row[0]%> name="image" width="100px" height="100px">
 	<br>
 	Caption: <%=row[1]%><br>
 
@@ -53,7 +53,7 @@
 <% csv.each.with_index do |row,index|%>
 <%   if row[3] == "Channel" %>
 <form action="/edit_upload" method="POST">
-<p class="updateimage"><img src=<%= row[0] %> name="image" width="100">
+<p class="updateimage"><img src=<%= row[0] %> name="image" width="100px" height="100px">
 <br>
 Caption: <%= row[1] %><br>
 
@@ -81,7 +81,7 @@ Featured: <%=row[4]%><br>
 <% csv.each.with_index do |row,index|%>
 <%   if row[3] == "Custom" %>
 <form action="/edit_upload" method="POST">
-<p class="updateimage"><img src=<%= row[0] %> name="image" width="100"><!--Needed a paragraph this line-->
+<p class="updateimage"><img src=<%= row[0] %> name="image" width="100px" height="100px"><!--Needed a paragraph this line-->
 <br>
 Caption: <%= row[1] %><br>
 
@@ -110,7 +110,7 @@ Featured: <%=row[4]%><br>
 <% csv.each.with_index do |row,index|%>
 <%   if row[3] == "Post&Panel" %>
 <form action="/edit_upload" method="POST">
-<p class="updateimage"><img src=<%= row[0] %> name="image" width="100">
+<p class="updateimage"><img src=<%= row[0] %> name="image" width="100px" height="100px">
 <br>
 
 Caption:<%= row[1] %><br>

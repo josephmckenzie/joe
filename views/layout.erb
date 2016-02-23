@@ -1,31 +1,21 @@
 <!DOCTYPE html>
 <html>
-<body style="background-color:silver;">
-    <head>
-   <title><%=  @title %> </title>
-        <link rel="stylesheet" type="text/css" href="/css/normalize.css">
-	   <link rel="stylesheet" type="text/css" href="/css/style.css">
-    
-    <style type='text/css'>
-     
-   
-    </style>
-​
+  <head>
+    <title><%=  @title %></title>
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
   </head>
-    <body>
-        <ol>
-          <li><img src="https://scontent-ord1-1.xx.fbcdn.net/hphotos-xaf1/t31.0-8/s2048x2048/12771550_10153460142131693_7957465127218266527_o.jpg" style="width:25%;margin-bottom:1%;margin-top:1%;margin-left:-5%;margin-right:13%;"align="middle"></li>
-          <li><b><a href='/'>Home&nbsp;</a></b></li>
-          <li><b><a href='/portfolio'>Portfolio&nbsp;</a></b></li>
-         <li><b><a href='/estimate'>Get a Quote&nbsp;</a></b></li>
-          <li><b><a href='/contact'>Contact</a></b></li>   
-        </ol>
-    </body>
-
-​<%=  yield %>
-</body>
-<div id="footerBar1">
- 
-  <p class=footer><b>City Neon Inc. © Copyright-2016<br>This site was created by Mined Minds <br> <a href="http://minedminds.org"target="blank"><img src="images/mm.jpg"width="2%" height="2%" /></a></b></p>
-​</div> 
+  <body>
+    <ol>
+      <li><img src="https://scontent-ord1-1.xx.fbcdn.net/hphotos-xaf1/t31.0-8/s2048x2048/12771550_10153460142131693_7957465127218266527_o.jpg" style="width:25%;margin-bottom:1%;margin-top:1%;margin-left:-5%;margin-right:13%;"align="middle"></li>
+      <li><b><a href='/'>Home&nbsp;</a></b></li>
+      <li><b><a href='/portfolio'>Portfolio&nbsp;</a></b></li>
+      <li><b><a href='/estimate'>Get a Quote&nbsp;</a></b></li>
+      <li><b><a href='/contact'>Contact</a></b></li>   
+    </ol>
+    <%=  yield %>
+    <div id="footerBar1">
+      <p class=footer><b>City Neon Inc. © Copyright-2016<br>This site was created by Mined Minds <br> <a href="http://minedminds.org"target="blank"><img src="images/mm.jpg"width="2%" height="2%" /></a></b></p>
+    </div>
+  </body>
 </html> 

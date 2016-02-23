@@ -5,7 +5,7 @@ require_relative 'converter.rb'
 require 'pony'
 require 'csv'
 require 'aws/s3'
-load "./local_env.rb"
+load "./local_env.rb" if File.exists?("./local_env.rb")
 
 AWS::S3::Base.establish_connection!(
   :access_key_id   => ENV['S3_KEY'],
@@ -16,7 +16,7 @@ AWS::S3::Base.establish_connection!(
 def write_file_to_s3(data_to_write)
   AWS::S3::S3Object.store('citywholesale.csv' , 
                         data_to_write, 
-                        "joestest2", 
+                        "omfgirhpa", 
                         :access => :public_read)
 end
 
@@ -25,16 +25,28 @@ csv = CSV.parse(AWS::S3::S3Object.value(ENV['S3_FILE'] , ENV['S3_BUCKET']))
 end
 
 get '/login' do
-  
+
+#  upfile = AWS::S3::S3Object.value(ENV['upfile'] , ENV['S3_BUCKET'])
+    
+  erb :login, :locals => {}
+end
+
+post '/login' do
+  username = params[:user]
+  password = params[:pass]
   user = ENV['USERNAME']
   pass = ENV['PASSWORD']
-    
-  erb :login, :locals => {:user => user, :pass => pass}
+  
+  if username == user && password == pass
+    return "success"
+  else
+    return "fail"
+  end
 end
 
 get '/update_csv' do
     csv = read_csv_from_s3
-    erb :update_csv, :locals =>{:csv => csv}
+  erb :update_csv, :locals =>{:csv => csv}
 end
 
 get '/upload' do
@@ -143,27 +155,27 @@ post '/estimateContact' do
 end
 
 post '/submit' do
- name = params[:user_name]
- business = params[:user_business]
- address = params[:user_address]
- phone = params[:user_phone]
- from = params[:user_email]
- to = "info@minedminds.org,#{from}"
- referred = params[:user_referred]
- size = params[:sizeSelection]
- depth = params[:depthSelection]
- face = params[:faceSelection]
- mounting = params[:mountingSelection]
- light = params[:lightingSelection]
- paint = params[:paintSelection]
- total = params[:totalSelection]
- quoteNumber = params[:estimateSelection]
- comments = params[:message]
+  name = params[:user_name]
+  business = params[:user_business]
+  address = params[:user_address]
+  phone = params[:user_phone]
+  from = params[:user_email]
+  to = "info@minedminds.org,#{from}"
+  referred = params[:user_referred]
+  size = params[:sizeSelection]
+  depth = params[:depthSelection]
+  face = params[:faceSelection]
+  mounting = params[:mountingSelection]
+  light = params[:lightingSelection]
+  paint = params[:paintSelection]
+  total = params[:totalSelection]
+  quoteNumber = params[:estimateSelection]
+  comments = params[:message]
     
  Pony.mail(
    :to => to, 
-   :from => "mmtcontactnoreply@gmail.com", 
-   :subject => "Your City Wholesale Quote", 
+   :from => "noreply@citywholesale.com", 
+   :subject => "City Wholesale Contact", 
    :content_type => 'text/html', 
    :body => erb(:email, :layout => false),
    :via => :smtp, 
@@ -171,8 +183,8 @@ post '/submit' do
      :address              => 'smtp.gmail.com',
      :port                 => '587',
      :enable_starttls_auto => true,
-     :user_name            => 'mmtcontactnoreply',
-     :password             => 'Woof9663!',
+     :user_name            => ENV['EMAILUSER'],
+     :password             => ENV['EMAILPASS'],
      :authentication       => :plain, 
      :domain               => "localhost.localdomain" 
    }
@@ -182,26 +194,26 @@ post '/submit' do
 end
 
 post '/submit2' do
- name = params[:user_name]
- business = params[:user_business]
- address = params[:user_address]
- phone = params[:user_phone]
- from = params[:user_email]
- to = "smellydog@outlook.com,#{from}"
- referred = params[:user_referred]
- size = params[:sizeSelection]
- depth = params[:depthSelection]
- face = params[:faceSelection]
- mounting = params[:mountingSelection]
- light = params[:lightingSelection]
- paint = params[:paintSelection]
- total = params[:totalSelection]
- quoteNumber = params[:estimateSelection]
- comments = params[:message]
+  name = params[:user_name]
+  business = params[:user_business]
+  address = params[:user_address]
+  phone = params[:user_phone]
+  from = params[:user_email]
+  to = "smellydog@outlook.com,#{from}"
+  referred = params[:user_referred]
+  size = params[:sizeSelection]
+  depth = params[:depthSelection]
+  face = params[:faceSelection]
+  mounting = params[:mountingSelection]
+  light = params[:lightingSelection]
+  paint = params[:paintSelection]
+  total = params[:totalSelection]
+  quoteNumber = params[:estimateSelection]
+  comments = params[:message]
     
  Pony.mail(
    :to => to, 
-   :from => "mmtcontactnoreply@gmail.com", 
+   :from => "noreplay@citywholesale.com", 
    :subject => "Your City Wholesale Quote", 
    :content_type => 'text/html', 
       :body => erb(:email2, :layout => false),
@@ -210,8 +222,8 @@ post '/submit2' do
      :address              => 'smtp.gmail.com',
      :port                 => '587',
      :enable_starttls_auto => true,
-     :user_name            => 'mmtcontactnoreply',
-     :password             => 'Woof9663!',
+     :user_name            => ENV['EMAILUSER'],
+     :password             => ENV['EMAILPASS'],
      :authentication       => :plain, 
      :domain               => "localhost.localdomain" 
    }
