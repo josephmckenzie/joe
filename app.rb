@@ -21,7 +21,7 @@ def write_file_to_s3(data_to_write)
 end
 
 def read_csv_from_s3
-csv = CSV.parse(AWS::S3::S3Object.value(ENV['S3_FILE'] , 'omfgirhpa'))
+csv = CSV.parse(AWS::S3::S3Object.value(ENV['S3_FILE'] , ENV['S3_BUCKET']))
 end
 
 get '/login' do
