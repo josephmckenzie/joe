@@ -8,8 +8,8 @@ require 'aws/s3'
 load "./local_env.rb" if File.exists?("./local_env.rb")
 
 AWS::S3::Base.establish_connection!(
-  :access_key_id   => 'AKIAJLG36DRZKLZHZGSQ',
-  :secret_access_key => '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'
+  :access_key_id   => ENV['S3_KEY'],
+  :secret_access_key => ENV['S3_SECRET']
 
 )
 
@@ -21,7 +21,7 @@ def write_file_to_s3(data_to_write)
 end
 
 def read_csv_from_s3
-csv = CSV.parse(AWS::S3::S3Object.value('citywholesale.csv' , 'omfgirhpa'))
+csv = CSV.parse(AWS::S3::S3Object.value(ENV['S3_FILE'] , ENV['S3_BUCKET']))
 end
 
 get '/login' do
@@ -34,8 +34,8 @@ end
 post '/login' do
   username = params[:user]
   password = params[:pass]
-  user = 'CityWholesale'
-  pass = 'CityWholesale'
+  user = ENV['USERNAME']
+  pass = ENV['PASSWORD']
   
   if username == user && password == pass
     return "success"
