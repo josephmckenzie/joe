@@ -8,8 +8,8 @@ require 'aws/s3'
 load "./local_env.rb" if File.exists?("./local_env.rb")
 
 AWS::S3::Base.establish_connection!(
-  :access_key_id   => ENV['AKIAJLG36DRZKLZHZGSQ'],
-  :secret_access_key => ENV['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']
+  :access_key_id   => ENV['S3_KEY'],
+  :secret_access_key => ENV['S3_SECRET']
 
 )
 
