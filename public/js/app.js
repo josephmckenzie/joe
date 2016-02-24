@@ -46,7 +46,7 @@ function getCurrentImage (currentImage) {
     //Update overlay with the image linked in the link
     $image.attr("src", imageLocation);
 
-    var captionText = $(this).children("img").attr("alt");
+    var captionText = $(currentImage).children("img").attr("alt");
     //Get child's alt attribute and set caption
     $caption.text(captionText);
 }
@@ -78,3 +78,21 @@ $closeLightbox.click(function(){
   $overlay.hide();
 });
 
+//Authentication
+
+$('#login').submit(function(event){
+  event.preventDefault();
+  $.ajax({
+    url: '/login',
+    type: 'post',
+    data: $(this).serialize(),
+    dataType: 'html',
+    success: function(data){
+      if (data === "success"){
+        $('#status').html('')
+        window.location.href = '/update_csv';
+      } else {$('#status').html('Incorrect Username or Password')}
+    },
+    error: function(){$('#status').html('fail')}
+  });
+});
