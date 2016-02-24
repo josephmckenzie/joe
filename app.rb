@@ -34,8 +34,8 @@ end
 post '/login' do
   username = params[:user]
   password = params[:pass]
-  user = 'CityWholesale'
-  pass = 'CityWholesale'
+  user = ENV['USERNAME']
+  pass = ENV['PASSWORD']
   
   if username == user && password == pass
     return "success"
